@@ -1,17 +1,27 @@
 import SectionBar from "../components/SectionBar";
 import requests from "../utils/requests";
+import MovieCard from "../components/MovieCard";
 
 export default function Home(props) {
-  console.log({props});
+  console.log({ props });
   return (
-      <main className="w-full">
-        <SectionBar/>
-        <div>
-          {props.results.map((item) => (
-              <h1 key={item.id}>{item.title}</h1>
-          ))}
-        </div>
-      </main>
+    <main className="w-full">
+      <SectionBar />
+      <div className="bg-gray-700 text-gray-300 p-4 sm:p-8 gap-8 grid grid-cols-1
+        sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+        {props.results.map((item) => (
+          <MovieCard
+            key={item.id}
+            image={item.backdrop_path}
+            title={item.title || item.name}
+            overview={item.overview}
+            releaseDate={item.release_date || item.first_air_date}
+            rating={item.vote_average}
+            rates={item.vote_count}
+          />
+        ))}
+      </div>
+    </main>
   );
 }
 
@@ -26,7 +36,7 @@ export async function getServerSideProps(context) {
       url,
       genre,
       nextPage: data.page >= data.total_pages ? "" : `&page=${data.page + 1}`,
-      previousPage: data.page <= 1 ? "" : `&page=${data.page - 1}`
-    }
+      previousPage: data.page <= 1 ? "" : `&page=${data.page - 1}`,
+    },
   };
 }

@@ -20,10 +20,10 @@ const Header = (props) => {
   ];
   return (
     <header
-      className=" p-4 sm:px-8 md:px-16 bg-gray-700 text-white w-full flex flex-col sm:flex-row
+      className="p-6 sm:px-8 md:px-16 bg-gray-700 text-white w-full flex flex-col sm:flex-row
      sm:justify-between items-center space-y-8 sm:space-y-0"
     >
-      <div className="flex space-x-8">
+      <div className="flex space-x-4 sm:space-x-8">
         {headerButtons.map((btn) => (
           <HeaderButton
             key={btn.text}

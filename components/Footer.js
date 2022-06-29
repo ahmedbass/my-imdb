@@ -1,7 +1,7 @@
 const Footer = (props) => {
   return (
-      <footer className="p-4 border-t w-full text-center bg-amber-100">
-        <p className="text-sm text-amber-600">
+      <footer className="p-4 py-8 w-full text-center bg-gray-700">
+        <p className="text-sm text-gray-200">
           Copyright &copy; {new Date().getFullYear()} Ahmed Bass
         </p>
       </footer>

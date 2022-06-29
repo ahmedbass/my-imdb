@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 const SectionBar = (props) => {
   const router = useRouter();
   return (
-    <div className="bg-gray-500  p-2 flex justify-center items-center space-x-8">
+    <div className="bg-gray-800  p-2 flex justify-center items-center space-x-8">
       {Object.entries(requests).map(([key, { title, url }]) => (
         <h2
           key={key}

@@ -13,7 +13,7 @@ const Layout = (props) => {
 
         <Header/>
 
-        <div className="flex-grow">{props.children}</div>
+        <div className="flex-grow w-full">{props.children}</div>
 
         <Footer/>
       </div>

@@ -1,10 +1,10 @@
 import { ExclamationCircleIcon } from "@heroicons/react/outline";
 
-const HeaderBtn = ({ text, Icon = ExclamationCircleIcon, action }) => {
+const HeaderButton = ({ text, Icon = ExclamationCircleIcon, action }) => {
   return (
     <div
       className="flex flex-col justify-center items-center space-y-1
-       cursor-pointer hover:text-amber-400 transition"
+       cursor-pointer hover:text-amber-400 transition select-none group"
       onClick={action}
     >
       <Icon className="h-6" />
@@ -12,4 +12,4 @@ const HeaderBtn = ({ text, Icon = ExclamationCircleIcon, action }) => {
     </div>
   );
 };
-export default HeaderBtn;
+export default HeaderButton;

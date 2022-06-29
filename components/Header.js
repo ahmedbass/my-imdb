@@ -1,17 +1,42 @@
 import Logo from "./Logo";
-import HeaderBtn from "./HeaderBtn";
-import {HomeIcon, InformationCircleIcon, PhoneIcon, UserIcon} from "@heroicons/react/outline";
+import HeaderButton from "./HeaderButton";
+import {
+  HomeIcon,
+  InformationCircleIcon,
+  PhoneIcon,
+  UserIcon,
+} from "@heroicons/react/solid";
 
 const Header = (props) => {
+  const headerButtons = [
+    { text: "home", Icon: HomeIcon, action: () => console.log("hey") },
+    { text: "account", Icon: UserIcon, action: () => console.log("heyy") },
+    { text: "contact", Icon: PhoneIcon, action: () => console.log("heyyy") },
+    {
+      text: "about",
+      Icon: InformationCircleIcon,
+      action: () => console.log("heyyyy"),
+    },
+  ];
   return (
-    <header className="p-4 sm:px-8 bg-stone-700 text-white w-full flex justify-between items-center">
-      <div className="flex space-x-4">
-        <HeaderBtn text="Home" Icon={HomeIcon} action={() => console.log("hey")} />
-        <HeaderBtn text="Account" Icon={UserIcon} action={() => console.log("heyy")} />
-        <HeaderBtn text="Contact" Icon={PhoneIcon} action={() => console.log("heyyy")} />
-        <HeaderBtn text="About" Icon={InformationCircleIcon} action={() => console.log("heyyyy")} />
+    <header
+      className=" p-4 sm:px-8 md:px-16 bg-gray-700 text-white w-full flex flex-col sm:flex-row
+     sm:justify-between items-center space-y-8 sm:space-y-0"
+    >
+      <div className="flex space-x-8">
+        {headerButtons.map((btn) => (
+          <HeaderButton
+            key={btn.text}
+            text={btn.text}
+            Icon={btn.Icon}
+            action={btn.action}
+          />
+        ))}
       </div>
-      <Logo width={80} />
+
+      <div>
+        <Logo width={80} />
+      </div>
     </header>
   );
 };
